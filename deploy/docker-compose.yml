@@ -1,0 +1,28 @@
+version: '3'
+
+networks:
+  web:
+    external: true
+
+services:
+  kass-api:
+    image: $DOCKER_IMAGE
+    environment:
+      APP_NAME: $APP_NAME
+      SERVER_PORT: $SERVER_PORT
+      LOGGER_ENABLED: $LOGGER_ENABLED
+      LOGGER_LEVEL: $LOGGER_LEVEL
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_DATABASE: $DB_DATABASE
+      DB_ENABLE_SSL: $DB_ENABLE_SSL
+    labels:
+      - traefik.http.routers.kass-api.rule=Host(`${TRAEFIK_HOST}`)
+      - traefik.http.routers.kass-api.tls=true
+      - traefik.http.routers.kass-api.tls.certresolver=lets-encrypt
+      - traefik.port=80
+      - traefik.http.services.kass-api.loadbalancer.server.port=${SERVER_PORT}
+    networks:
+      - web
