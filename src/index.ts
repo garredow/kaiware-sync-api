@@ -1,11 +1,5 @@
-import arg from 'arg';
 import { config } from './lib/config';
 import { configureServer } from './server';
-
-const args = arg({
-  '--port': Number,
-  '-p': '--port',
-});
 
 const server = configureServer();
 
