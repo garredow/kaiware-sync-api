@@ -1,4 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
+import { Auth0 } from './lib/auth0';
 import { Database } from './lib/database';
 import { getUser } from './utils/getUser';
 const { version: apiVersion } = require('../package.json');
@@ -52,6 +53,28 @@ async function deleteSettings(
   res.status(204);
 }
 
+type RefreshTokenBody = {
+  refreshToken: string;
+  clientId: string;
+};
+async function refreshToken(req: FastifyRequest<{ Body: RefreshTokenBody }>, res: FastifyReply) {
+  try {
+    const result = await new Auth0(req.headers.authorization!.slice(7)).refreshToken(
+      req.body.clientId,
+      req.body.refreshToken
+    );
+
+    res.send({
+      access_token: result.access_token,
+      refresh_token: result.refresh_token,
+      id_token: result.id_token,
+      expires_at: Date.now() + result.expires_in * 1000,
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
 async function whoami(req: FastifyRequest, res: FastifyReply) {
   const user = await getUser(req, true);
 
@@ -78,6 +101,7 @@ export default {
   upsertSettings,
   getSettings,
   deleteSettings,
+  refreshToken,
   whoami,
   health,
 };

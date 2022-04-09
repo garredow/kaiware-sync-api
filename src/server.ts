@@ -47,6 +47,11 @@ export function configureServer() {
       handler: controller.whoami,
     });
 
+    instance.post('/refresh', {
+      preValidation: instance.authenticate,
+      handler: controller.refreshToken,
+    });
+
     instance.get('/health', {
       handler: controller.health,
     });

@@ -1,6 +1,5 @@
 import { FastifyRequest } from 'fastify';
-import fetch from 'node-fetch';
-import { config } from '../lib/config';
+import { Auth0 } from '../lib/auth0';
 import { UserInfo } from '../models';
 
 export async function getUser(req: FastifyRequest, includeInfo = false): Promise<UserInfo> {
@@ -9,16 +8,14 @@ export async function getUser(req: FastifyRequest, includeInfo = false): Promise
   };
 
   if (includeInfo) {
-    const data = await fetch(`${config.auth0.domain}/userInfo`, {
-      headers: { Authorization: req.headers.authorization! },
-    }).then((res) => res.json());
+    const userInfo = await new Auth0(req.headers.authorization!.slice(7)).getUserInfo();
 
-    result.email = data.email;
-    result.email_verified = data.email_verified;
-    result.name = data.name;
-    result.nickname = data.nickname;
-    result.picture = data.picture;
-    result.updated_at = data.updated_at;
+    result.email = userInfo.email;
+    result.email_verified = userInfo.email_verified;
+    result.name = userInfo.name;
+    result.nickname = userInfo.nickname;
+    result.picture = userInfo.picture;
+    result.updated_at = userInfo.updated_at;
   }
 
   return result;
