@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/garredow/kaiware-sync-api/compare/v1.2.0...v1.2.1) (2022-04-09)
+
+
+### Bug Fixes
+
+* update cicd to deploy ([388967b](https://github.com/garredow/kaiware-sync-api/commit/388967b80d359743e60045a88ed90a22f4d322f9))
+
 # [1.2.0](https://github.com/garredow/kaiware-sync-api/compare/v1.1.0...v1.2.0) (2022-04-09)
 
 
