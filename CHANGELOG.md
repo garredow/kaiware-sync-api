@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/garredow/kaiware-sync-api/compare/v1.1.0...v1.2.0) (2022-04-09)
+
+
+### Features
+
+* rename data endpoints ([ea2adb4](https://github.com/garredow/kaiware-sync-api/commit/ea2adb455465e1fcc7983ed5448980d33ce84071))
+
 # [1.1.0](https://github.com/garredow/kaiware-sync-api/compare/v1.0.0...v1.1.0) (2022-04-09)
 
 
