@@ -18,6 +18,8 @@ services:
       DB_PASSWORD: $DB_PASSWORD
       DB_DATABASE: $DB_DATABASE
       DB_ENABLE_SSL: $DB_ENABLE_SSL
+      AUTH0_DOMAIN: $AUTH0_DOMAIN
+      AUTH0_AUDIENCE: $AUTH0_AUDIENCE
     labels:
       - traefik.http.routers.kaiware-sync-api.rule=Host(`${TRAEFIK_HOST}`)
       - traefik.http.routers.kaiware-sync-api.tls=true
