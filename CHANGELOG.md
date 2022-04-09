@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/garredow/kaiware-sync-api/compare/v1.0.0...v1.1.0) (2022-04-09)
+
+
+### Features
+
+* add "api" prefix to routes ([5e09f49](https://github.com/garredow/kaiware-sync-api/commit/5e09f492031d43ff11ee4820c14975c1085a9cf0))
+* add refresh token endpoint ([a9a3577](https://github.com/garredow/kaiware-sync-api/commit/a9a357741ccd1c28a94137611c1d28c4157c46ab))
+
 # 1.0.0 (2022-04-09)
 
 
