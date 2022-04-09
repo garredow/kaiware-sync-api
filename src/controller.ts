@@ -8,7 +8,7 @@ type GetSettingsParams = {
   appId: string;
 };
 async function getSettings(req: FastifyRequest<{ Params: GetSettingsParams }>, res: FastifyReply) {
-  const user = getUser(req);
+  const user = await getUser(req);
 
   const settings = await db.getSettings(user.id, req.params.appId);
 
@@ -30,7 +30,7 @@ async function upsertSettings(
   req: FastifyRequest<{ Params: UpsertSettingsParams; Body: unknown }>,
   res: FastifyReply
 ) {
-  const user = getUser(req);
+  const user = await getUser(req);
 
   const result = await db.upsertSettings(user.id, req.params.appId, req.body);
 
@@ -44,15 +44,16 @@ async function deleteSettings(
   req: FastifyRequest<{ Params: DeleteSettingsParams; Body: unknown }>,
   res: FastifyReply
 ) {
-  const user = getUser(req);
+  const user = await getUser(req);
 
   await db.deleteSettings(user.id, req.params.appId);
 
   res.status(204);
 }
 
-function whoami(req: FastifyRequest, res: FastifyReply) {
-  const user = getUser(req);
+async function whoami(req: FastifyRequest, res: FastifyReply) {
+  const user = await getUser(req, true);
+
   res.send(user);
 }
 
