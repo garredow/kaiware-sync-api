@@ -27,17 +27,17 @@ export function configureServer() {
   });
 
   fastify.register(function (instance, _options, done) {
-    instance.get('/api/settings/:appId', {
+    instance.get('/api/data/:appId', {
       preValidation: instance.authenticate,
       handler: controller.getSettings,
     });
 
-    instance.put('/api/settings/:appId', {
+    instance.put('/api/data/:appId', {
       preValidation: instance.authenticate,
       handler: controller.upsertSettings,
     });
 
-    instance.delete('/api/settings/:appId', {
+    instance.delete('/api/data/:appId', {
       preValidation: instance.authenticate,
       handler: controller.deleteSettings,
     });
