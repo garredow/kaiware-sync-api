@@ -1,6 +1,7 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
 import { Database } from './lib/database';
 import { getUser } from './utils/getUser';
+const { version: apiVersion } = require('../package.json');
 
 const db = new Database();
 
@@ -61,12 +62,14 @@ async function health(req: FastifyRequest, res: FastifyReply) {
   try {
     res.send({
       healthy: true,
+      version: apiVersion,
       dbLatency: await db.testLatency(),
     });
   } catch (err: any) {
     req.log.error(err?.message);
     res.send({
       healthy: false,
+      version: apiVersion,
     });
   }
 }
