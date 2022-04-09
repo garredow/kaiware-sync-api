@@ -27,32 +27,32 @@ export function configureServer() {
   });
 
   fastify.register(function (instance, _options, done) {
-    instance.get('/settings/:appId', {
+    instance.get('/api/settings/:appId', {
       preValidation: instance.authenticate,
       handler: controller.getSettings,
     });
 
-    instance.put('/settings/:appId', {
+    instance.put('/api/settings/:appId', {
       preValidation: instance.authenticate,
       handler: controller.upsertSettings,
     });
 
-    instance.delete('/settings/:appId', {
+    instance.delete('/api/settings/:appId', {
       preValidation: instance.authenticate,
       handler: controller.deleteSettings,
     });
 
-    instance.get('/whoami', {
+    instance.get('/api/whoami', {
       preValidation: instance.authenticate,
       handler: controller.whoami,
     });
 
-    instance.post('/refresh', {
+    instance.post('/api/refresh', {
       preValidation: instance.authenticate,
       handler: controller.refreshToken,
     });
 
-    instance.get('/health', {
+    instance.get('/api/health', {
       handler: controller.health,
     });
 
