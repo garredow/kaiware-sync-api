@@ -6,7 +6,7 @@ import { config } from './lib/config';
 
 const logger: LoggerOptions = {
   enabled: config.logger.enabled,
-  name: 'kass-api',
+  name: 'kaiware-sync-api',
   level: config.logger.level,
   formatters: {
     level: (label: string) => ({ level: label }),

@@ -1,1 +1,1 @@
-# kass-api
+# kaiware-sync-api

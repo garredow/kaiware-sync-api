@@ -7,7 +7,7 @@ if [[ -z "${DOCKER_IMAGE}" ]]; then
     exit 1
 fi
 
-cd ~/apps/kass-api
+cd ~/apps/kaiware-sync-api
 
 docker-compose down && docker-compose up -d
 

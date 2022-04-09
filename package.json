@@ -1,5 +1,5 @@
 {
-  "name": "kass-api",
+  "name": "kaiware-sync-api",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/garredow/kass-api.git"
+    "url": "https://github.com/garredow/kaiware-sync-api.git"
   },
   "keywords": [],
   "author": "Garrett Downs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/garredow/kass-api/issues"
+    "url": "https://github.com/garredow/kaiware-sync-api/issues"
   },
-  "homepage": "https://github.com/garredow/kass-api#readme",
+  "homepage": "https://github.com/garredow/kaiware-sync-api#readme",
   "dependencies": {
     "dotenv": "^16.0.0",
     "fastify": "^3.28.0",
