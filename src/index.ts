@@ -1,3 +1,4 @@
+require('newrelic');
 import { config } from './lib/config';
 import { configureServer } from './server';
 
