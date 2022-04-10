@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/garredow/kaiware-sync-api/compare/v1.2.1...v1.3.0) (2022-04-10)
+
+
+### Features
+
+* add new relic monitoring ([faa8130](https://github.com/garredow/kaiware-sync-api/commit/faa81305ce55ff5121caaa977930ff5ffcaa302c))
+
 ## [1.2.1](https://github.com/garredow/kaiware-sync-api/compare/v1.2.0...v1.2.1) (2022-04-09)
 
 
